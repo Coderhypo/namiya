@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}解忧杂货店{% endblock %} - 这里不销售烦恼,只解决烦恼</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="keywords" content="解忧杂货店,浪矢杂货店,烦恼杂货店,杂货店,树洞,烦恼,解忧,吐槽,心理,安慰,治愈">
+    <meta name="description" content="这么多年咨询信看下来，让我逐渐明白一件事。很多时候，咨询的人心里已经有了答案，来咨询只是想确认自己的决定是对的。所以有些人读过回信后，会再次写信过来，大概就是因为回答的内容和他的想法不一样。">
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+    <!-- Custom styles for this template -->
+    <link href="/static/css/justified-nav.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]>
+    <script src="/static/ie8-responsive-file-warning.js"></script>
+    <![endif]-->
+    <script src="/static/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    {% block header %}{% endblock %}
+</head>
+<body>
+<div class="container">
+      <div class="masthead">
+        <h3 class="text-muted">解忧杂货店</h3>
+        <ul class="nav nav-justified">
+          <li><a href="/">首页</a></li>
+          <li><a href="/mailbox">投信箱</a></li>
+          <li><a href="/milkbox">牛奶箱</a></li>
+          <li><a href="/help">帮助</a></li>
+          <li><a href="https://book.douban.com/subject/25862578/" target="_blank">ナミヤ雑貨店の奇蹟</a></li>
+          <li><a href="#">关于</a></li>
+        </ul>
+      </div>
+      {% block content %}{% endblock %}
+      <!-- Site footer -->
+      <div class="footer">
+        <p>&copy; <a href="http://blog.ihypo.net" target="_blank">梦旭代码</a> 2016</p>
+      </div>
+    </div> <!-- /container -->
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/static/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</body>
+</html>

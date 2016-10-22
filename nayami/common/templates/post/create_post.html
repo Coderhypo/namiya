@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}咨询信箱{% endblock %}
+{% block content %}
+<div class="row box">
+    <form action="/post" method="POST">
+        <div class="col-md-12">
+            <p><b>浪矢先生, 你好</b></p>
+        </div>
+        <div class="col-md-12">
+            <textarea class="form-control" style="width: 97%; margin: 0 auto" rows="20" name="content"></textarea>
+        </div>
+        <div class="col-md-12" style="margin: 10px 0">
+            <div class="col-md-6">
+                <input class="form-control" type="email" name="sender_email" placeholder="常用邮箱"/>
+            </div>
+            <div class="col-md-5">
+                <input class="form-control" name="sender" placeholder="署名"/>
+            </div>
+            <div class="col-md-1">
+                <button class="btn btn-sm btn-success" type="submit">提交</button>
+            </div>
+        </div>
+    </form>
+    <div class="col-md-12">
+        <div class="alert alert-warning" role="alert">
+            <p>你好, 朋友</p>
+            <p>很高兴你能敞开心扉, 我们很荣幸能帮你解决烦恼, 也许我们不能得出专业, 绝对正确的回复, 但我们和热心的志愿者, 会用心答复。</p>
+            <p>信件不比及时聊天, 你不能及时得到答复, 但一般答复不会超过一天, 所以, 请在信件中尽量把问题描述清楚, 我们暂定要求咨询信件不能少于50字</p>
+            <p>如果方便, 请留下常用邮箱, 以便在得到回复的时候, 能够第一时间收到通知。 当然, 邮箱也是你查看自己的信件的唯一权限认证。</p>
+            <p>愿世间没有烦恼。</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}牛奶箱{% endblock %}
+{% block header %}{% endblock %}
+{% block content %}
+<div class="row box">
+    <div class="col-md-12">
+        <h2>邮箱验证</h2>
+    </div>
+    <div class="col-md-12">
+        {% if recipient %}
+        <div class="alert alert-danger" role="alert">
+            <p>" 这是浪矢杂货店写给 {{ recipient }} 的信, 偷看别人的信件是犯法的行为。"</p>
+        </div>
+        {% endif %}
+        <p>在看这篇信件之前, 需要验证你的邮箱:</p>
+        <form action="/p/{{ post_id }}" method="POST">
+            <div class="col-md-8">
+                <input type="email" class="form-control" name="email" placeholder="电子邮箱">
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-sm btn-success">验证</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

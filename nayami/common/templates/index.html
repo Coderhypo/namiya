@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}解忧杂货店{% endblock %}
+{% block content %}
+  <div class="jumbotron">
+    <h1>浪矢杂货店</h1>
+    <div class="lead">
+      <p>
+        "这么多年咨询信看下来，让我逐渐明白一件事。很多时候，咨询的人心里已经有了答案，来咨询只是想确认自己的决定是对的。所以有些人读过回信后，会再次写信过来，大概就是因为回答的内容和他的想法不一样。"
+      </p>
+      <p style="text-align: right">——浪矢雄治</p>
+    </div>
+    <p><a class="btn btn-lg btn-success" href="/help" role="button">获得帮助</a></p>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4 col-md-12">
+      <h2>咨询信箱</h2>
+      <p>如果你不介意的话, 欢迎把烦恼写信给我们, 虽然不能拿出权威专业的指导, 但是会像浪矢老爷爷一样, 用心解决你的烦恼。</p>
+      <p><a class="btn btn-primary" href="/post" role="button">投入烦恼 &raquo;</a></p>
+    </div>
+    <div class="col-lg-4 col-md-12">
+      <h2>牛奶箱</h2>
+      <p>你的回信会出现的牛奶箱里, 在你阅读到之前, 它会一直待在这里。 不过更建议在投递的时候留下你的电子邮箱, 在牛奶箱里出现你的回信的时候, 你会收到通知。</p>
+      <p><a class="btn btn-primary" href="/milkbox" role="button">查看牛奶箱 &raquo;</a></p>
+   </div>
+    <div class="col-lg-4 col-md-12">
+      <h2>后门</h2>
+      <p>杂货店欢迎自愿者的参与, 每晚杂货店都会留门给自愿者, 希望大家保持真诚, 友善。后门开放时间: <b>每晚十点一刻后开放, 早上七点半锁门</b></p>
+      <p><a class="btn btn-primary" href="/backdoor" role="button">溜入后门 &raquo;</a></p>
+    </div>
+  </div>
+{% endblock %}

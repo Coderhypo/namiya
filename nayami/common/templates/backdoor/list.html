@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}咨询队列{% endblock %}
+{% block content %}
+<div class="row box">
+    <div class="col-md-12">
+        <div class="alert alert-success" role="alert">
+            <p>志愿者, 你好</p>
+            <p>很高兴也很荣幸你能加入我们, 这里存放着来自五洲四海的烦恼, 让我们保持真诚, 友善, 用心答复我们看到的咨询信, 并对咨询人的秘密保持忠诚。</p>
+            <p>为了保证质量, 我们规定回复信<b>不能少于100个字</b>。</p>
+            <p>
+                <a class="btn btn-xs btn-danger" href="/backdoor?need=true" target="_blank" role="button">急需回复的咨询信</a>
+                <a class="btn btn-xs btn-default" href="/help" target="_blank" role="button">使用帮助</a>
+            </p>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <h2>信箱</h2>
+    </div>
+    <div class="col-md-12">
+        <table class="table table-striped table-hover table-condensed table-responsive">
+          <caption>建议: 在回复的时候请优先回复投递时间更早的咨询信。</caption>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>投递人</th>
+              <th>信件长度</th>
+              <th>状态</th>
+              <th>投递时间</th>
+              <th>最后查看时间</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for p in posts %}
+            <tr>
+              <td>{{ loop.index }}</td>
+              <td>{{ p.sender }}</td>
+              <td>{{ p.content_len }}</td>
+              <td>{% if p.is_read %}未回复{% else %}未查收{% endif %}</td>
+              <td>{{ p.create_time }}</td>
+              <td>{{ p.distributed_time }}</td>
+              <td><a type="button" class="btn btn-xs btn-warning" target="_blank" href="/backdoor?p={{ p.id }}">回复</a></td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

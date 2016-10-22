@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}咨询信箱{% endblock %}
+{% block content %}
+<div class="row box">
+    <div class="col-md-12">
+        <p><b>{{ post.recipient }}</b>, 你好</p>
+    </div>
+    <div class="col-md-12" style="font-size: 20px">
+        <p>{{ post.content }}</p>
+    </div>
+    <div class="col-md-12" style="text-align: right">
+        <p>{{ post.sender }}</p>
+        <p>{{ post.create_time }}</p>
+    </div>
+</div>
+{% endblock %}
