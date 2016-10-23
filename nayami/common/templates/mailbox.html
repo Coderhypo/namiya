@@ -6,7 +6,8 @@
         <h2>信箱 <a href="/post" class="btn btn-xs btn-info">投递</a></h2>
     </div>
     <div class="col-md-12">
-        <table class="table table-striped table-hover table-condensed table-responsive">
+        <div class="table-responsive">
+        <table class="table table-striped table-hover table-condensed">
           <caption>未被查收的烦恼咨询信会存放在信箱, 当被人查看或回复之后会移除信箱。</caption>
           <thead>
             <tr>
@@ -29,6 +30,7 @@
           {% endfor %}
           </tbody>
         </table>
+        </div>
     </div>
 </div>
 {% endblock %}

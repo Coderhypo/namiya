@@ -63,9 +63,10 @@ def back_door_page():
         need = request.args.get('need')
         if need == 'true':
             post = Post.get_rand_unanswered_post()
-            return render_template('backdoor/reply_post.html', post=post)
+            if post:
+                return render_template('backdoor/reply_post.html', post=post)
         post_id = request.args.get("p")
-        post = Post.get_post_by_id(post_id)
+        post = Post.get_post_by_id(post_id) if post_id else None
         if post and not post.from_namiya:
             post.read()
             return render_template('backdoor/reply_post.html', post=post)

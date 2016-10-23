@@ -6,7 +6,7 @@
         <p><b>{{ post.recipient }}</b>, 你好</p>
     </div>
     <div class="col-md-12" style="font-size: 20px">
-        <p>{{ post.content }}</p>
+        {{ post.content | safe }}
     </div>
     <div class="col-md-12" style="text-align: right">
         <p>{{ post.sender }}</p>

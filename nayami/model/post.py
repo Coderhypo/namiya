@@ -1,7 +1,7 @@
 from flask import g
 from uuid import uuid4
 from datetime import datetime
-
+from markdown2 import markdown
 from sqlalchemy import desc
 
 from nayami.common.app import db
@@ -12,6 +12,7 @@ class Post(db.Model):
     id = db.Column('post_id', db.String(255), primary_key=True)
 
     content = db.Column(db.Text)
+    content_md = db.Column(db.Text)
     content_len = db.Column(db.Integer)
     recipient = db.Column(db.String(80))
     sender = db.Column(db.String(80))
@@ -55,7 +56,8 @@ class Post(db.Model):
     @classmethod
     def create_post(cls, sender, sender_email, content):
         post = cls()
-        post.content = content
+        post.content_md = content
+        post.content = markdown(content, extras=["fenced-code-blocks"], safe_mode=True)
         post.content_len = len(content)
         post.recipient = RECIPIENT
         post.sender = sender
@@ -67,7 +69,8 @@ class Post(db.Model):
 
     def reply(self, sender_email, content):
         post = Post()
-        post.content = content
+        post.content_md = content
+        post.content = markdown(content, extras=["fenced-code-blocks"], safe_mode=True)
         post.content_len = len(content)
         post.recipient = self.sender
         post.sender = SENDER
@@ -93,6 +96,8 @@ class Post(db.Model):
     @classmethod
     def get_rand_unanswered_post(cls):
         post = cls.query.filter_by(replied_time=None, from_namiya=False).order_by(cls.distributed_time).first()
+        if not post:
+            return None
         post.distributed_time = datetime.now()
         post.is_read = True
         db.session.add(post)
