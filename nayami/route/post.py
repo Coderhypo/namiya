@@ -58,7 +58,7 @@ def milk_box_page():
 def back_door_page():
     now = datetime.now().hour
     from nayami.config import TEST
-    if TEST and (now > 8 or now < 22):
+    if not TEST and 8 < now < 22:
         return render_template('backdoor/help.html')
 
     if request.method == 'GET':
