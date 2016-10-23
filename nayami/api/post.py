@@ -47,7 +47,6 @@ def reply_post(post_id):
                        content=data['content'])
 
     from nayami.util.email import MailSender
-    print reply.reply_email
     sender = MailSender(reply.reply_email)
     sender.set_message_by_post(reply)
     sender.send()

@@ -1,7 +1,7 @@
 # coding=utf-8
+import urlparse
 from flask_mail import Mail
 from flask_mail import Message
-import urlparse
 
 from nayami.common.app import app
 from nayami.config import EMAIL_SENDER, SMTP_SERVER, EMAIL_PASSWORD, TEST, SERVER_URL
@@ -47,6 +47,4 @@ class MailSender(object):
             mail.send(msg)
         except Exception as e:
             print e
-            pass
-
 
