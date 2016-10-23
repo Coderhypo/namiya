@@ -16,4 +16,5 @@ SENDER = u'浪矢杂货店'
 # other
 TEST = bool(os.getenv("TEST", True))
 API_TOKEN = os.getenv("API_TOKEN", "DANGEROUS")
+SERVER_URL = os.getenv("SERVER_URL", "http://127.0.0.1:4000")
 VERSION = 'v0.1'

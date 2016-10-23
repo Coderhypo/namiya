@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %}后门已锁{% endblock %}
+{% block header %}{% endblock %}
+{% block content %}
+<div class="row box">
+    <div class="col-md-12">
+        <h2>后门已经锁了🔐</h2>
+    </div>
+    <div class="col-md-12">
+        <p>你好, 志愿者!</p>
+        <p>很高兴你能来, 但是后门还没到开放时间, <b>每晚十点一刻</b>, 后门便重新开放。</p>
+    </div>
+</div>
+{% endblock %}

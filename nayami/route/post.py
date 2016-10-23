@@ -18,7 +18,7 @@ def get_post_page(post_id):
 
     email = request.form.get("email")
     post = Post.get_post_by_id(post_id)
-    if not post or post.recipient_email != email:
+    if not post or post.reply_email != email:
         recipient = post.recipient if post else u'John Winston Lennon'
         return render_template('post/need_email.html', post_id=post_id, recipient=recipient)
     post.read()
@@ -46,11 +46,9 @@ def mail_box_page():
     return render_template('mailbox.html', posts=posts)
 
 
-@app.route('/milkbox', methods=['GET', 'POST'])
+@app.route('/milkbox', methods=['GET'])
 @user_auth
 def milk_box_page():
-    if request.method == 'POST':
-        email = None
     posts = Post.get_all_replies()
     return render_template('milkbox/list.html', posts=posts)
 
@@ -58,7 +56,11 @@ def milk_box_page():
 @app.route('/backdoor', methods=['GET', 'POST'])
 @user_auth
 def back_door_page():
-    now = datetime.now()
+    now = datetime.now().hour
+    from nayami.config import TEST
+    if True and 22 > now > 8:
+        return render_template('backdoor/help.html')
+
     if request.method == 'GET':
         need = request.args.get('need')
         if need == 'true':
@@ -87,4 +89,3 @@ def other_page(page_name):
     if page_name in ['help']:
         return render_template('page/%s.html' % page_name)
     abort(404)
-

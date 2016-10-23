@@ -16,7 +16,6 @@ class Post(db.Model):
     content_len = db.Column(db.Integer)
     recipient = db.Column(db.String(80))
     sender = db.Column(db.String(80))
-    recipient_email = db.Column(db.String(120))
     sender_email = db.Column(db.String(120), nullable=False)
 
     reply_id = db.Column("reply_id", db.String(255), index=True)
@@ -39,7 +38,7 @@ class Post(db.Model):
         self.distributed_time = datetime.now()
         self.reply_id = None
         self.replied_time = None
-        self.recipient_email = None
+        self.reply_email = None
         self.is_read = False
         self.is_public = False
         self.from_namiya = False
@@ -78,7 +77,7 @@ class Post(db.Model):
 
         post.reply_id = self.id
         post.last_post_time = self.create_time
-        post.recipient_email = self.sender_email
+        post.reply_email = self.sender_email
         if not self.from_namiya:
             post.from_namiya = True
         db.session.add(post)
